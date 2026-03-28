@@ -1,0 +1,8 @@
+**/.vs
+**/.git
+**/obj
+**/bin
+**/*.user
+**/Dockerfile
+**/.dockerignore
+**/purchaseorders.db
