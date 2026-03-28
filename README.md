@@ -46,10 +46,11 @@ Swagger UI: `http://localhost:5000/swagger`
 
 ## Run with Docker
 
-The Docker build runs all unit tests automatically. If any test fails, the image is not generated.
+The Dockerfile has 4 stages chained in order: `build → test → publish → runtime`.
+Tests run automatically as part of the build — if any test fails, the image is not generated.
 
 ```bash
-# Build image (runs tests during build)
+# Build image (runs all 26 unit tests automatically)
 docker build -t purchase-order-api .
 
 # Run (SQLite persisted in a named volume)
@@ -61,6 +62,7 @@ Migrations are applied automatically on container startup.
 To skip tests during local development:
 
 ```bash
+# Stops at the publish stage, before runtime — tests are not executed
 docker build --target publish -t purchase-order-api .
 ```
 

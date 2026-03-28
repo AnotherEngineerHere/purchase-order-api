@@ -20,7 +20,7 @@ RUN dotnet test "PurchaseOrderApi.Tests/PurchaseOrderApi.Tests.csproj" \
     --verbosity normal
 
 # ── Publish stage ─────────────────────────────────────────────────────────────
-FROM build AS publish
+FROM test AS publish
 RUN dotnet publish "PurchaseOrderApi/PurchaseOrderApi.csproj" \
     -c Release \
     -o /app/publish \
